@@ -67,6 +67,7 @@ public class Enemy : MonoBehaviour {
 	{
 		// Reduce the number of hit points by one.
 		HP -= hp;
+		AudioHandler.instance.playSound();
 	}
 
 	void Death()

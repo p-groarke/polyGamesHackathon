@@ -23,7 +23,11 @@ public class AudioHandler : MonoBehaviour {
 	public void playSound ()
 	{
 		audio.PlayOneShot(myClip[Random.Range(0,myClip.Length)]);
+		wait ();
 	}
 	
-	
+	IEnumerator wait()
+	{
+		yield return new WaitForSeconds(1);
+	}
 }
