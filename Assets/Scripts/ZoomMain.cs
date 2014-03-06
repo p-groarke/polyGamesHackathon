@@ -8,6 +8,8 @@ public class ZoomMain : MonoBehaviour {
 	int smoothness = 5;
 	bool isZoomed = false;
 
+	public string characterToFollow;
+
 	public int cameraInitialPositionX = 0;
 	public int cameraInitialPositionY = 0;
 	public int cameraInitialPositionZ = -10;
@@ -27,7 +29,7 @@ public class ZoomMain : MonoBehaviour {
 		}
 		if(isZoomed==true){
 			camera.orthographicSize = Mathf.Lerp(camera.orthographicSize,zoom,Time.deltaTime*smoothness);
-			GameObject objectToFollow = GameObject.Find ("Quad1");
+			GameObject objectToFollow = GameObject.Find (characterToFollow);
 			Vector3 vecteurObjectToFollow = objectToFollow.transform.position;
 			vecteurObjectToFollow.x = Mathf.Lerp(camera.transform.position.x,vecteurObjectToFollow.x,Time.deltaTime*smoothness);
 			vecteurObjectToFollow.y = Mathf.Lerp(camera.transform.position.y,vecteurObjectToFollow.y,Time.deltaTime*smoothness);
