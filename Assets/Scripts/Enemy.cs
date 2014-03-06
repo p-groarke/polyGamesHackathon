@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour {
 		newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
 		Vector3 headVelocity = newEnnemyHead.rigidbody2D.velocity;
 		headVelocity.x += Random.Range (-10, 10);
-		headVelocity.y += Random.Range (0, 40);
+		headVelocity.y += Random.Range (0, 30);
 		newEnnemyHead.rigidbody2D.velocity = headVelocity;
 
 	}
