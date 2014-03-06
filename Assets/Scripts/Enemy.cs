@@ -9,7 +9,10 @@ public class Enemy : MonoBehaviour {
 	public GameObject animation;
 	private float lastTime = 0f;
 	public GameObject ennemyHead;
-	
+	private GameObject newEnnemyHead;
+	private float vertExtent;
+	private float horzExtent;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -54,11 +57,15 @@ public class Enemy : MonoBehaviour {
 			transform.position = newPosition;
 		}
 
-		float vertExtent = GameObject.Find("Main Camera").GetComponent<Camera>().camera.orthographicSize;  
-		float horzExtent = vertExtent * Screen.width / Screen.height;
+		vertExtent = GameObject.Find("Main Camera").GetComponent<Camera>().camera.orthographicSize;  
+		horzExtent = vertExtent * Screen.width / Screen.height;
 		if (transform.position.x < (horzExtent * -1) - 3) 
 		{
 			Destroy(gameObject);
+		}
+		if (newEnnemyHead != null && ((newEnnemyHead.transform.position.x > horzExtent) || (newEnnemyHead.transform.position.x < -horzExtent))) 
+		{
+			Destroy(newEnnemyHead);
 		}
 		lastTime = Time.time;
 	}
@@ -72,11 +79,12 @@ public class Enemy : MonoBehaviour {
 
 	void Death()
 	{
-		GameObject newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
+		newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
 		Vector3 headVelocity = newEnnemyHead.rigidbody2D.velocity;
 		headVelocity.x += Random.Range (-10, 10);
 		headVelocity.y += Random.Range (0, 40);
 		newEnnemyHead.rigidbody2D.velocity = headVelocity;
+
 	}
 
 
