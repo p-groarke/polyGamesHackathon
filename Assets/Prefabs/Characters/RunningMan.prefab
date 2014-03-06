@@ -84,8 +84,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -.0199999996
   HP: 3
-  animation: {fileID: 100000, guid: 7c1956facfca88b499bfb343d786aabf, type: 2}
   ennemyHead: {fileID: 100000, guid: 63c828870b06a4d4cb398f13361abf89, type: 2}
+  enemyDeath:
+  - {fileID: 100000, guid: 3b7aa43781e0b4c4e9b0d3d4b363f6f0, type: 2}
+  - {fileID: 100000, guid: 3327682d25bcf404da8f998fa6684296, type: 2}
+  - {fileID: 100000, guid: 2eb17c167156ca94aad61d5ca15247b9, type: 2}
+  - {fileID: 100000, guid: 067ee13e70a6f4643a1ab33848aab2e7, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

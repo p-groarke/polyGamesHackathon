@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d72a7dbda02ce144bac4ab389241b092
+guid: 84e15bfe61baf8c42bfbb88685a110fc
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -24,13 +24,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -44,6 +44,60 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: EnemyDeath2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 354
+        height: 224
+      alignment: 1
+      pivot: {x: 0, y: 0}
+    - name: EnemyDeath2_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 448
+        width: 354
+        height: 224
+      alignment: 1
+      pivot: {x: 0, y: 0}
+    - name: EnemyDeath2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 354
+        height: 224
+      alignment: 1
+      pivot: {x: 0, y: 0}
+    - name: EnemyDeath2_3
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 224
+        width: 354
+        height: 224
+      alignment: 1
+      pivot: {x: 0, y: 0}
+    - name: EnemyDeath2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 354
+        height: 224
+      alignment: 1
+      pivot: {x: 0, y: 0}
+    - name: EnemyDeath2_5
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 354
+        height: 224
+      alignment: 1
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 

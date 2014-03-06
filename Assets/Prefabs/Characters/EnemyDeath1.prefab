@@ -11,10 +11,8 @@ GameObject:
   - 212: {fileID: 21200000}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400000}
-  - 50: {fileID: 5000000}
-  - 61: {fileID: 6100000}
   m_Layer: 0
-  m_Name: stabbingMan
+  m_Name: EnemyDeath1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,36 +25,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.10514355, y: -2.51061749, z: 0}
+  m_LocalPosition: {x: .756161749, y: -1.75923753, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!50 &5000000
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!61 &6100000
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Size: {x: .75, y: 2.5}
-  m_Center: {x: .100000001, y: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -66,7 +38,7 @@ Animator:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a26dcd0beb73c945bdcd32a41703750, type: 2}
+  m_Controller: {fileID: 9100000, guid: 921c04708daeb5040a6f1fa73440814d, type: 2}
   m_CullingMode: 0
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
@@ -82,14 +54,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba936c5f80209e418f2ac69f5af2883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -.0199999996
-  HP: 3
-  ennemyHead: {fileID: 100000, guid: 63c828870b06a4d4cb398f13361abf89, type: 2}
-  enemyDeath:
-  - {fileID: 100000, guid: 3b7aa43781e0b4c4e9b0d3d4b363f6f0, type: 2}
-  - {fileID: 100000, guid: 3327682d25bcf404da8f998fa6684296, type: 2}
-  - {fileID: 100000, guid: 2eb17c167156ca94aad61d5ca15247b9, type: 2}
-  - {fileID: 100000, guid: 067ee13e70a6f4643a1ab33848aab2e7, type: 2}
+  speed: -.0500000007
+  HP: 0
+  ennemyHead: {fileID: 0}
+  enemyDeath: []
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -111,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 63c707351fcf7c14aa09750f18af2601, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f993c4f81c69634b8dbb443810cb6e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
