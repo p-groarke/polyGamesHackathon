@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Pause : MonoBehaviour {
 	private bool m_isPaused = false;
+	private bool m_isDead = false;
 	private GUIStyle m_BackgroundStyle = new GUIStyle();		// Style for background tiling
 	private Texture2D m_FadeTexture;				// 1x1 pixel texture used for fading
 	private Color m_startScreenColor = new Color(0,0,0,0);
@@ -24,6 +25,7 @@ public class Pause : MonoBehaviour {
 
 	private void Update()
 	{
+		m_isDead = GameObject.Find ("Main Camera").GetComponent<Death> ().m_isDead;
 		// TEMP:
 		// usage: use "SetScreenOverlayColor" to set the initial color, then use "StartFade" to set the desired color & fade duration and start the fade
 		//SetScreenOverlayColor(new Color(0,0,0,1));
@@ -49,8 +51,13 @@ public class Pause : MonoBehaviour {
 	// draw the texture and perform the fade:
 	private void OnGUI()
 	{   
-		if (GUI.Button (new Rect (450,05,50,50), "Pause")) {
-			m_isPaused = !m_isPaused;
+		GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);  //Keeps the button looking like a button
+		buttonStyle.fontSize = 40;  //changes font size of button
+		buttonStyle.normal.textColor = Color.white;
+		buttonStyle.fontStyle = FontStyle.Bold;
+		if(!m_isDead)
+			if (GUI.Button (new Rect (Screen.width/2 - 75,30,150,100), "Pause", buttonStyle)) {
+				m_isPaused = !m_isPaused;
 		}
 		// if the current color of the screen is not equal to the desired color: keep fading!
 		if (m_CurrentScreenOverlayColor != m_TargetScreenOverlayColor)

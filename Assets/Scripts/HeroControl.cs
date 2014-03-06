@@ -14,6 +14,7 @@ public class HeroControl : MonoBehaviour {
 
 	bool goingBack;
 	bool fighting;
+	bool notFighting;
 	
 	bool zoom;
 
@@ -41,6 +42,7 @@ public class HeroControl : MonoBehaviour {
 		goingBack = false;
 		goingToPos = false;
 		fighting = false;
+		notFighting = true;
 
 		initPosition = transform.position;
 		animator = this.GetComponent<Animator>();
@@ -98,12 +100,29 @@ public class HeroControl : MonoBehaviour {
 		}
 
 	}
+
+	void OnTriggerStay2D(Collider2D collision)
+	{
+
+		if (notFighting == true)
+		{
+			if (collision.gameObject.CompareTag("Enemy") == true)
+				Hurt (1);
+		}
+		
+	}
+	
 	void OnTriggerExit2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Enemy") == true)
 			collidingWithEnemy = false;
 	}
-	
+
+
+	void Hurt(int howHurts)
+	{
+		HP -= howHurts;
+	}
 
 	// GO BACK
 	void goBack()
@@ -124,6 +143,7 @@ public class HeroControl : MonoBehaviour {
 
 		if (transform.position == initPosition)
 		{
+			notFighting = true;
 			animator.SetInteger("State", 0);
 			goingBack = false;
 		}
@@ -149,6 +169,8 @@ public class HeroControl : MonoBehaviour {
 		}
 
 		transform.position = Vector3.Lerp(initPosition, gotoPosition, (Time.time - startFlyTime) / flyDuration);
+
+		notFighting =false;
 
 		if (transform.position == gotoPosition)
 			goingToPos = false;
@@ -211,20 +233,24 @@ public class HeroControl : MonoBehaviour {
 		{
 //			print ("goingback");
 			goBack();
+			notFighting = true;
 		}
 
 		else if (goingToPos)
 		{
 //			print ("goingtopos");
 			flyToPosition();
+			notFighting = true;
 		}
 
 		else
 		{
 			//SWIPE STUFF
 
+
 			if (Input.GetMouseButtonDown(0))
 			{
+				notFighting = false;
 				swipeFirstPosition = Input.mousePosition;
 
 				if (!fighting)
@@ -234,7 +260,6 @@ public class HeroControl : MonoBehaviour {
 					
 					if(hit && hit.collider.gameObject.CompareTag("Enemy") == true)
 					{
-						print (hit.transform.tag);
 						currentTarget = hit.transform.gameObject;
 					}
 					else
@@ -260,6 +285,7 @@ public class HeroControl : MonoBehaviour {
 			// Check swipes
 			else if (Input.GetMouseButtonUp(0))
 			{
+				notFighting = false;
 				gotMouseUp = true;
 
 				swipeCurrent = (Vector2)Input.mousePosition - swipeFirstPosition;

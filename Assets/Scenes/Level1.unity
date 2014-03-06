@@ -300,6 +300,10 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: 1024582385
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: c2a93c8f4877946829a581874dda3f6e, type: 2}
+      propertyPath: HP
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2a93c8f4877946829a581874dda3f6e, type: 2}
   m_RootGameObject: {fileID: 750965820}
@@ -432,7 +436,7 @@ MonoBehaviour:
   singleClickTime: .200000003
   bonusFightAddition: .400000006
   bonusFightTime: 0
-  HP: 5
+  HP: 100
 --- !u!95 &750965824
 Animator:
   serializedVersion: 2
@@ -1378,6 +1382,7 @@ GameObject:
   - 114: {fileID: 1631180859}
   - 114: {fileID: 1631180860}
   - 114: {fileID: 1631180861}
+  - 114: {fileID: 1631180862}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1488,6 +1493,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+--- !u!114 &1631180862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631180853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d088b24db7ba11429e5ef83d178eb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isDead: 0
 --- !u!1 &1784995346
 GameObject:
   m_ObjectHideFlags: 0

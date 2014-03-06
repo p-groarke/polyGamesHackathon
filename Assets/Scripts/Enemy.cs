@@ -83,7 +83,6 @@ public class Enemy : MonoBehaviour {
 
 	public void Damage(int hp)
 	{
-		print ("damage"+ hp);
 		// Reduce the number of hit points by one.
 		HP -= hp;
 		if (HP <= 0)
