@@ -85,6 +85,7 @@ MonoBehaviour:
   speed: -.0199999996
   HP: 3
   animation: {fileID: 100000, guid: 7c1956facfca88b499bfb343d786aabf, type: 2}
+  ennemyHead: {fileID: 100000, guid: 63c828870b06a4d4cb398f13361abf89, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

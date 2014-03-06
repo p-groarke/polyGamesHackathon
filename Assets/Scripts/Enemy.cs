@@ -3,10 +3,12 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+	bool isDead= false;
 	public float speed = -0.02f;
 	public int HP = 3;
 	public GameObject animation;
 	private float lastTime = 0f;
+	public GameObject ennemyHead;
 	
 	// Use this for initialization
 	void Start () {
@@ -18,6 +20,12 @@ public class Enemy : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("Player") == true) 
 		{
 			speed = 0;
+			Damage (1);
+			if (HP == 0) 
+			{
+				Death();
+				isDead = true;
+			}
 		}
 	}
 
@@ -26,6 +34,10 @@ public class Enemy : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("Player") == true) 
 		{
 			speed = -0.02f;
+			
+			if (isDead) {
+				speed = 0.01f;
+			}
 		}
 	}
 
@@ -56,7 +68,11 @@ public class Enemy : MonoBehaviour {
 
 	void Death()
 	{
-		
+		GameObject newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
+		Vector3 headVelocity = newEnnemyHead.rigidbody2D.velocity;
+		headVelocity.x += Random.Range (-10, 10);
+		headVelocity.y += Random.Range (0, 40);
+		newEnnemyHead.rigidbody2D.velocity = headVelocity;
 	}
 
 

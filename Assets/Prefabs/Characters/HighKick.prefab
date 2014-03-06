@@ -85,6 +85,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -.0199999996
   HP: 3
+  animation: {fileID: 0}
+  ennemyHead: {fileID: 100000, guid: 63c828870b06a4d4cb398f13361abf89, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
