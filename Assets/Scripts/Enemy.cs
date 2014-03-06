@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour {
 		//Play hurt sound
 		if (lastHP > HP && HP != 0)
 		{
-			AudioHurtHandler.instance.playSound();
+			//AudioHurtHandler.instance.playSound();
 			lastHP = HP;
 		}
 		Vector3 newPosition = transform.position;
@@ -79,6 +79,7 @@ public class Enemy : MonoBehaviour {
 
 	public void Damage(int hp)
 	{
+		print ("damage"+ hp);
 		// Reduce the number of hit points by one.
 		HP -= hp;
 		score.addPoints(5);

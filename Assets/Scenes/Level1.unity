@@ -377,6 +377,7 @@ GameObject:
   - 114: {fileID: 850301003}
   - 61: {fileID: 850301000}
   - 50: {fileID: 850300999}
+  - 68: {fileID: 850301006}
   m_Layer: 0
   m_Name: hero
   m_TagString: Player
@@ -407,7 +408,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 189764245}
   m_GameObject: {fileID: 850300998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Size: {x: 1.70000005, y: 2.55999994}
@@ -431,9 +432,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_SortingLayerID: 2511236001
+  m_SortingLayerID: 1024582385
   m_Sprite: {fileID: 21300000, guid: 9ae24cdb798484bf6a8f69f867939b5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &850301002
@@ -475,7 +476,9 @@ MonoBehaviour:
   flyDuration: .100000001
   goBackDuration: .200000003
   fightCounterTime: 1
-  singleClickTime: .100000001
+  singleClickTime: .200000003
+  bonusFightAddition: .400000006
+  bonusFightTime: 0
   HP: 5
 --- !u!95 &850301005
 Animator:
@@ -492,6 +495,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!68 &850301006
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850300998}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -.850000024, y: 0}
+  - {x: .850000024, y: 0}
 --- !u!1 &851283491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .150000006
-  sortingLayerID: 3
+  sortingLayerID: 5
 --- !u!23 &1613359485
 Renderer:
   m_ObjectHideFlags: 0
@@ -1384,6 +1399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c22d2400d849be245a74c0d930c8cf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomPlease: 0
   charToFollow: {fileID: 850300998}
   characterToFollow: 
   cameraInitialPositionX: 0
