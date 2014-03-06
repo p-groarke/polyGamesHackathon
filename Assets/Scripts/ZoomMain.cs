@@ -25,10 +25,8 @@ public class ZoomMain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Mouse1)){
-			isZoomed=!isZoomed;
-		}
-		if(isZoomed==true){
+		if(Input.GetMouseButton(0))
+		{
 			camera.orthographicSize = Mathf.Lerp(camera.orthographicSize,zoom,Time.deltaTime*smoothness);
 			GameObject objectToFollow = charToFollow;
 			Vector3 vecteurObjectToFollow = objectToFollow.transform.position;
@@ -37,17 +35,26 @@ public class ZoomMain : MonoBehaviour {
 			vecteurObjectToFollow.z = cameraInitialPositionZ;
 
 			vecteurObjectToFollow.x = Mathf.Clamp (vecteurObjectToFollow.x, -2.5f, 2.5f);
-			vecteurObjectToFollow.y = Mathf.Clamp (vecteurObjectToFollow.y, -1.5f, 1.5f);
+			vecteurObjectToFollow.y = Mathf.Clamp (vecteurObjectToFollow.y, 0f, 2.5f);
 
 			camera.transform.position = vecteurObjectToFollow;
+
+			Quaternion cameraRotation = camera.transform.rotation;
+			cameraRotation.z = Random.Range(-0.01f, 0.01f);
+			camera.transform.rotation = cameraRotation;
 		}
-		else{
+		else
+		{
 			camera.orthographicSize = Mathf.Lerp(camera.orthographicSize,defaultFov,Time.deltaTime*smoothness);
 			Vector3 vecteurPositionCamera;
 			vecteurPositionCamera.x = Mathf.Lerp(camera.transform.position.x,cameraInitialPositionX,Time.deltaTime*smoothness);
 			vecteurPositionCamera.y = Mathf.Lerp(camera.transform.position.y,cameraInitialPositionY,Time.deltaTime*smoothness);
 			vecteurPositionCamera.z = cameraInitialPositionZ;
 			camera.transform.position = vecteurPositionCamera;
+
+			Quaternion cameraRotation = camera.transform.rotation;
+			cameraRotation.z = 0f;
+			camera.transform.rotation = cameraRotation;
 		} 
 	}
 }

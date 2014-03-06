@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -.0199999996
   HP: 3
+  ennemyHead: {fileID: 100000, guid: 63c828870b06a4d4cb398f13361abf89, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -102,9 +103,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2511236001
   m_Sprite: {fileID: 21300000, guid: 63c707351fcf7c14aa09750f18af2601, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
