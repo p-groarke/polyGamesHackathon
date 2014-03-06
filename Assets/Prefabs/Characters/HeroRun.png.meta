@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 024b859ad23014d92841be605dadb044
+guid: 9ae24cdb798484bf6a8f69f867939b5f
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -44,6 +44,24 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: HeroRun_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 170
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroRun_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 170
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 

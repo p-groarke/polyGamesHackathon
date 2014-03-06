@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dbe990e451b454600b836327ba770a60
+guid: 7cc749bb9bbb943f782702719fb0d89e
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,21 +45,21 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: sheet_0
+    - name: HeroPunchMidSheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
+        width: 222
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: sheet_1
+    - name: HeroPunchMidSheet_1
       rect:
         serializedVersion: 2
-        x: 170
+        x: 222
         y: 0
-        width: 170
+        width: 290
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}

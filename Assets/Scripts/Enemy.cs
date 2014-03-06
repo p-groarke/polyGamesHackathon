@@ -19,6 +19,13 @@ public class Enemy : MonoBehaviour {
 			deplacement = 0;
 	}
 
+	void OnTriggerExit2D(Collider2D collision)
+	{
+		print("Collision");
+		if (collision.gameObject.CompareTag ("Player") == true) 
+			deplacement = -0.02f;
+	}
+
 
 	// Update is called once per frame
 	void Update () {
