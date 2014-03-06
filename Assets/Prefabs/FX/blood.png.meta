@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8024a24b58e4a4c65b84eb62e4986fe3
+guid: 47cf207c744b945f68351d895c04811a
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,22 +45,58 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: HeroFlySheet_0
+    - name: blood_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 253
-        height: 256
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: HeroFlySheet_1
+    - name: blood_1
       rect:
         serializedVersion: 2
-        x: 253
+        x: 512
         y: 0
-        width: 259
-        height: 256
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: blood_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: blood_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: blood_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: blood_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 
