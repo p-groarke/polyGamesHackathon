@@ -51,6 +51,10 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (Time.time % 30 == 0) 
+		{
+			++HP;
+		}
 		//Play hurt sound
 		if (lastHP > HP && HP != 0)
 		{

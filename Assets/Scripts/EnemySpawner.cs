@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
 	void Start ()
 	{
 		// Start calling the Spawn function repeatedly after a delay .
-		InvokeRepeating("Spawn", spawnDelay, Random.Range (1, 6));
+		InvokeRepeating("Spawn", spawnDelay, Random.Range (1,6));
 	}
 	
 	void Spawn ()

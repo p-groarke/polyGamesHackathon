@@ -88,7 +88,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 7df529927c4b2e24fb4fb878dcef7edc, type: 2}
   - {fileID: 100000, guid: 592da8776eec03c48b32892deb96eb7e, type: 2}
   - {fileID: 100000, guid: 067ee13e70a6f4643a1ab33848aab2e7, type: 2}
-  - {fileID: 100000, guid: 0c61322c31f1b9e4c9f471015e1d9932, type: 2}
+  - {fileID: 100000, guid: c37fc268d5ded7944b948441f886b89c, type: 2}
   ennemyHead: {fileID: 100000, guid: 6202d9e9935a5ba45b1aa41533a5ec8a, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:

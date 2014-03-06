@@ -324,7 +324,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: HeroWalk
-  m_Speed: 1
+  m_Speed: .5
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 56a085edd592d44dea83621c901893cf, type: 2}
@@ -428,13 +428,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110241425}
-      second:
-      - {fileID: 110197912}
-    data:
-      first: {fileID: 0}
-      second: []
-    data:
       first: {fileID: 0}
       second: []
     data:
@@ -451,6 +444,10 @@ StateMachine:
       second:
       - {fileID: 110183014}
     data:
+      first: {fileID: 110208899}
+      second:
+      - {fileID: 110141566}
+    data:
       first: {fileID: 110242209}
       second:
       - {fileID: 110191685}
@@ -463,9 +460,9 @@ StateMachine:
       second:
       - {fileID: 110180903}
     data:
-      first: {fileID: 110208899}
+      first: {fileID: 110241425}
       second:
-      - {fileID: 110141566}
+      - {fileID: 110197912}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 12, y: -144, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
