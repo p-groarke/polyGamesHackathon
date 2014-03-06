@@ -6,12 +6,14 @@ public class Enemy : MonoBehaviour {
 	bool isDead= false;
 	public float speed = -0.02f;
 	public int HP = 3;
-	public GameObject animation;
 	private float lastTime = 0f;
 	public GameObject ennemyHead;
+	private PlayerScore score;
+	public GameObject[] enemyDeath;
 	
 	// Use this for initialization
 	void Start () {
+		score = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerScore> ();
 	}
 
 
@@ -21,11 +23,6 @@ public class Enemy : MonoBehaviour {
 		{
 			speed = 0;
 			Damage (1);
-			if (HP == 0) 
-			{
-				Death();
-				isDead = true;
-			}
 		}
 	}
 
@@ -35,8 +32,10 @@ public class Enemy : MonoBehaviour {
 		{
 			speed = -0.02f;
 			
-			if (isDead) {
-				speed = 0.01f;
+			if (HP == 0) 
+			{
+				Death();
+				isDead = true;
 			}
 		}
 	}
@@ -64,16 +63,25 @@ public class Enemy : MonoBehaviour {
 	{
 		// Reduce the number of hit points by one.
 		HP -= hp;
+		score.addPoints(5);
 	}
 
 	void Death()
 	{
+		score.addPoints(50);
 		GameObject newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
 		Vector3 headVelocity = newEnnemyHead.rigidbody2D.velocity;
 		headVelocity.x += Random.Range (-10, 10);
 		headVelocity.y += Random.Range (0, 40);
 		newEnnemyHead.rigidbody2D.velocity = headVelocity;
-	}
 
+		//Vector3 newPosition = transform.position;
+		//newPosition.x = transform.position.x + 5f;
+
+		int deathIndex = Random.Range(0, enemyDeath.Length);
+		Instantiate(enemyDeath[deathIndex], transform.position, transform.rotation);
+
+		Destroy(gameObject);
+	}
 
 }
