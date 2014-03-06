@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour {
 		{
 			speed = -0.02f;
 			
-			if (HP == 0) 
+			if (HP <= 0) 
 			{
 				Death();
 				isDead = true;
@@ -82,6 +82,8 @@ public class Enemy : MonoBehaviour {
 		print ("damage"+ hp);
 		// Reduce the number of hit points by one.
 		HP -= hp;
+		if (HP <= 0)
+			Death();
 		score.addPoints(5);
 	}
 
