@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pause : MonoBehaviour {
+public class Death : MonoBehaviour {
 	private bool m_isPaused = false;
 	private GUIStyle m_BackgroundStyle = new GUIStyle();		// Style for background tiling
 	private Texture2D m_FadeTexture;				// 1x1 pixel texture used for fading
@@ -10,6 +10,7 @@ public class Pause : MonoBehaviour {
 	private Color m_TargetScreenOverlayColor = new Color(0,0,0,0);	// default target color: black and fully transparrent
 	private Color m_DeltaColor = new Color(0,0,0,0);		// the delta-color is basically the "speed / second" at which the current color should change
 	private int m_FadeGUIDepth = -1000;				// make sure this texture is drawn on top of everything
+	HeroControl hero = new HeroControl();
 	
 	
 	// initialize the texture, background-style and initial color:
@@ -19,39 +20,32 @@ public class Pause : MonoBehaviour {
 		m_BackgroundStyle.normal.background = m_FadeTexture;
 		SetScreenOverlayColor(m_CurrentScreenOverlayColor);
 		m_startScreenColor = m_CurrentScreenOverlayColor;
-
+		
 	}
-
+	
 	private void Update()
 	{
 		// TEMP:
 		// usage: use "SetScreenOverlayColor" to set the initial color, then use "StartFade" to set the desired color & fade duration and start the fade
 		//SetScreenOverlayColor(new Color(0,0,0,1));
-		if (m_isPaused) 
-		{
-			StartFade (new Color (0, 0, 0, 0.6f), 0.4f);
-			if(m_CurrentScreenOverlayColor == m_TargetScreenOverlayColor)
-			{
-				Time.timeScale = 0;
-				GameObject.Find("GameTheme").audio.Pause();
-			}
-		} 
-		else
-		{
-			m_CurrentScreenOverlayColor = m_startScreenColor;
-			if(!GameObject.Find("GameTheme").audio.isPlaying)
-				GameObject.Find("GameTheme").audio.Play();
-			Time.timeScale = 1;
-		}
 	}
 	
 	
 	// draw the texture and perform the fade:
 	private void OnGUI()
 	{   
-		if (GUI.Button (new Rect (450,05,50,50), "Pause")) {
-			m_isPaused = !m_isPaused;
-		}
+		if (hero.HP == 0)
+		{
+			StartFade (new Color (0.6f, 0, 0, 0.6f), 0.4f);
+			if(m_CurrentScreenOverlayColor == m_TargetScreenOverlayColor)
+			{
+				Time.timeScale = 0;
+				if (GUI.Button (new Rect (185,75,150,50), "Return to MainMenu"))
+					Application.LoadLevel("MainMenu");
+				if (GUI.Button (new Rect (185,175,150,50), "Restart"))
+					Application.LoadLevel("level1");
+			}
+		} 
 		// if the current color of the screen is not equal to the desired color: keep fading!
 		if (m_CurrentScreenOverlayColor != m_TargetScreenOverlayColor)
 		{			

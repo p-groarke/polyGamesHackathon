@@ -347,9 +347,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2511236001
   m_Sprite: {fileID: 21300000, guid: e852a5d2a20d05b47869cd96ed8951ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &495102023
@@ -359,7 +359,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 495102020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.5, z: 0}
+  m_LocalPosition: {x: 0, y: -3.5, z: 0}
   m_LocalScale: {x: 13, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -474,8 +474,9 @@ MonoBehaviour:
   speed: .100000001
   flyDuration: .100000001
   goBackDuration: .200000003
-  fightCounterTime: 3
+  fightCounterTime: 1
   singleClickTime: .100000001
+  HP: 5
 --- !u!95 &850301005
 Animator:
   serializedVersion: 2
@@ -1303,6 +1304,7 @@ GameObject:
   - 81: {fileID: 1631180854}
   - 114: {fileID: 1631180859}
   - 114: {fileID: 1631180860}
+  - 114: {fileID: 1631180861}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1398,6 +1400,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a654b38ad99903043b1b7930f2c1386b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1631180861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631180853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d088b24db7ba11429e5ef83d178eb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1784995346

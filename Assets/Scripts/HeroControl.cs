@@ -8,6 +8,7 @@ public class HeroControl : MonoBehaviour {
 	public float goBackDuration = 0.2f;
 	public float fightCounterTime = 3.0f;
 	public float singleClickTime = 0.1f;
+	public int HP = 5;
 
 	bool goingBack;
 	bool fighting;
@@ -38,6 +39,7 @@ public class HeroControl : MonoBehaviour {
 		gotMouseUp = false;
 
 	}
+
 	// ULTIMATE FIGHTING COUNTER
 	IEnumerator startFightCounter()
 	{
