@@ -4,17 +4,22 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 
 	bool isDead= false;
+	int lastHP;
 	public float speed = -0.02f;
 	public int HP = 3;
-	public GameObject animation;
-	private float lastTime = 0f;
+	public GameObject[] enemyDeath;
 	public GameObject ennemyHead;
+
+	private float lastTime = 0f;
+	private PlayerScore score;
 	private GameObject newEnnemyHead;
 	private float vertExtent;
 	private float horzExtent;
-
+	
 	// Use this for initialization
 	void Start () {
+		score = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerScore> ();
+		lastHP = HP;
 	}
 
 
@@ -25,11 +30,6 @@ public class Enemy : MonoBehaviour {
 		{
 			speed = 0;
 			Damage (1);
-			if (HP == 0) 
-			{
-				Death();
-				isDead = true;
-			}
 		}
 	}
 
@@ -40,8 +40,10 @@ public class Enemy : MonoBehaviour {
 		{
 			speed = -0.02f;
 			
-			if (isDead) {
-				speed = 0.01f;
+			if (HP == 0) 
+			{
+				Death();
+				isDead = true;
 			}
 		}
 	}
@@ -49,7 +51,12 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//print (speed);
+		//Play hurt sound
+		if (lastHP > HP && HP != 0)
+		{
+			//AudioHurtHandler.instance.playSound();
+			lastHP = HP;
+		}
 		Vector3 newPosition = transform.position;
 		if (lastTime != Time.time) 
 		{
@@ -72,20 +79,30 @@ public class Enemy : MonoBehaviour {
 
 	public void Damage(int hp)
 	{
+		print ("damage"+ hp);
 		// Reduce the number of hit points by one.
 		HP -= hp;
-		AudioHandler.instance.playSound();
+		score.addPoints(5);
 	}
 
 	void Death()
 	{
+		score.addPoints(50);
+		GameObject newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
+		AudioDeathHandler.instance.playSound();
 		newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
 		Vector3 headVelocity = newEnnemyHead.rigidbody2D.velocity;
 		headVelocity.x += Random.Range (-10, 10);
 		headVelocity.y += Random.Range (0, 30);
 		newEnnemyHead.rigidbody2D.velocity = headVelocity;
 
-	}
+		//Vector3 newPosition = transform.position;
+		//newPosition.x = transform.position.x + 5f;
 
+		int deathIndex = Random.Range(0, enemyDeath.Length);
+		Instantiate(enemyDeath[deathIndex], transform.position, transform.rotation);
+
+		Destroy(gameObject);
+	}
 
 }

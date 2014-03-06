@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class ZoomMain : MonoBehaviour {
-	
+
+	public bool zoomPlease;
 	int zoom = 3;
 	float defaultFov = 4.5f;
 	int smoothness = 5;
@@ -20,12 +21,13 @@ public class ZoomMain : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		zoomPlease = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButton(0))
+//		if(Input.GetMouseButton(0))
+		if(zoomPlease)
 		{
 			camera.orthographicSize = Mathf.Lerp(camera.orthographicSize,zoom,Time.deltaTime*smoothness);
 			GameObject objectToFollow = charToFollow;
