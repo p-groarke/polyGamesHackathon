@@ -33,12 +33,15 @@ public class Pause : MonoBehaviour {
 			if(m_CurrentScreenOverlayColor == m_TargetScreenOverlayColor)
 			{
 				Time.timeScale = 0;
+				GameObject.Find("GameTheme").audio.Pause();
 			}
 		} 
 		else
 		{
 			m_CurrentScreenOverlayColor = m_startScreenColor;
-				Time.timeScale = 1;
+			if(!GameObject.Find("GameTheme").audio.isPlaying)
+				GameObject.Find("GameTheme").audio.Play();
+			Time.timeScale = 1;
 		}
 	}
 	
@@ -46,7 +49,7 @@ public class Pause : MonoBehaviour {
 	// draw the texture and perform the fade:
 	private void OnGUI()
 	{   
-		if (GUI.Button (new Rect (125, 25,50,50), "Pause")) {
+		if (GUI.Button (new Rect (450,05,50,50), "Pause")) {
 			m_isPaused = !m_isPaused;
 		}
 		// if the current color of the screen is not equal to the desired color: keep fading!

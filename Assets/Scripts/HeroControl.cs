@@ -10,6 +10,7 @@ public class HeroControl : MonoBehaviour {
 	public float singleClickTime = 0.1f;
 	public float bonusFightAddition = 0.2f;
 	public float bonusFightTime = 0.0f;
+	public int HP = 5;
 
 	bool goingBack;
 	bool fighting;
@@ -54,6 +55,7 @@ public class HeroControl : MonoBehaviour {
 		bonusFightTime = 0;
 
 	}
+
 	// ULTIMATE FIGHTING COUNTER
 	IEnumerator startFightCounter()
 	{
@@ -156,6 +158,7 @@ public class HeroControl : MonoBehaviour {
 	// ATTACKS
 	void punch()
 	{
+		AudioHitHandler.instance.playSound();
 		print ("punch");
 //		animator.SetInteger("State", 2);
 		animator.SetTrigger("Punch");
