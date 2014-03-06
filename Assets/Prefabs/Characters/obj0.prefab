@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deplacement: -.0250000004
+  speed: -.0199999996
   HP: 3
 --- !u!212 &21200000
 SpriteRenderer:
