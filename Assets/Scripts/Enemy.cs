@@ -5,30 +5,33 @@ public class Enemy : MonoBehaviour {
 
 	public float speed = -0.02f;
 	public int HP = 3;
+	public GameObject animation;
 	private float lastTime = 0f;
 	
 	// Use this for initialization
 	void Start () {
-		
 	}
 
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag ("Player") == true) 
+		{
 			speed = 0;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag ("Player") == true) 
+		{
 			speed = -0.02f;
+		}
 	}
 
 
 	// Update is called once per frame
 	void Update () {
-		print (speed);
 		Vector3 newPosition = transform.position;
 		if (lastTime != Time.time) 
 		{
@@ -36,7 +39,7 @@ public class Enemy : MonoBehaviour {
 			transform.position = newPosition;
 		}
 
-		float vertExtent = GameObject.Find("Camera").GetComponent<Camera>().camera.orthographicSize;  
+		float vertExtent = GameObject.Find("Main Camera").GetComponent<Camera>().camera.orthographicSize;  
 		float horzExtent = vertExtent * Screen.width / Screen.height;
 		if (transform.position.x < (horzExtent * -1) - 3) 
 		{

@@ -86,6 +86,7 @@ GameObject:
   - 64: {fileID: 302756594}
   - 23: {fileID: 302756593}
   - 114: {fileID: 302756592}
+  - 95: {fileID: 302756596}
   m_Layer: 0
   m_Name: Background Quad
   m_TagString: Untagged
@@ -157,6 +158,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 302756590}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &302756596
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302756590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f70cc180d5d49de419cf6f5aa07d9a1a, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!1 &850300998
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +487,7 @@ MonoBehaviour:
   spawnDelay: 2
   enemies:
   - {fileID: 100000, guid: b456a204422cbcd43b929a3f1ed4126f, type: 2}
+  - {fileID: 100000, guid: 854ac032aefd6b04e88da90932834f43, type: 2}
 --- !u!1 &1423133776
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +518,7 @@ MonoBehaviour:
   spawnDelay: .5
   enemies:
   - {fileID: 100000, guid: b456a204422cbcd43b929a3f1ed4126f, type: 2}
+  - {fileID: 100000, guid: 854ac032aefd6b04e88da90932834f43, type: 2}
 --- !u!4 &1423133778
 Transform:
   m_ObjectHideFlags: 0
@@ -525,6 +542,7 @@ GameObject:
   - 64: {fileID: 1448468110}
   - 23: {fileID: 1448468109}
   - 114: {fileID: 1448468108}
+  - 95: {fileID: 1448468112}
   m_Layer: 0
   m_Name: Midground Quad
   m_TagString: Untagged
@@ -596,6 +614,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1448468106}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1448468112
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1448468106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bbea2e202c58407418e50e0194e2a15c, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!1 &1631180853
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,3 +780,4 @@ MonoBehaviour:
   spawnDelay: 1
   enemies:
   - {fileID: 100000, guid: b456a204422cbcd43b929a3f1ed4126f, type: 2}
+  - {fileID: 100000, guid: 854ac032aefd6b04e88da90932834f43, type: 2}
