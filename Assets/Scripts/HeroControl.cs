@@ -42,6 +42,7 @@ public class HeroControl : MonoBehaviour {
 	IEnumerator startFightCounter()
 	{
 		fighting = true;
+		AudioHitHandler.instance.playSound();
 		yield return new WaitForSeconds(fightCounterTime);
 		goBack();
 		fighting = false;

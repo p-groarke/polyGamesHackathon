@@ -6,12 +6,14 @@ public class Enemy : MonoBehaviour {
 	bool isDead= false;
 	public float speed = -0.02f;
 	public int HP = 3;
+	int lastHP;
 	public GameObject animation;
 	private float lastTime = 0f;
 	public GameObject ennemyHead;
 	
 	// Use this for initialization
 	void Start () {
+		lastHP = HP;
 	}
 
 
@@ -46,7 +48,12 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//print (speed);
+		//Play hurt sound
+		if (lastHP > HP && HP != 0)
+		{
+			AudioHurtHandler.instance.playSound();
+			lastHP = HP;
+		}
 		Vector3 newPosition = transform.position;
 		if (lastTime != Time.time) 
 		{
@@ -67,11 +74,11 @@ public class Enemy : MonoBehaviour {
 	{
 		// Reduce the number of hit points by one.
 		HP -= hp;
-		AudioHandler.instance.playSound();
 	}
 
 	void Death()
 	{
+		AudioDeathHandler.instance.playSound();
 		GameObject newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
 		Vector3 headVelocity = newEnnemyHead.rigidbody2D.velocity;
 		headVelocity.x += Random.Range (-10, 10);

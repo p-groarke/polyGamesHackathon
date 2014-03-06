@@ -1,29 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 
-using System.Collections;
-
-
-
-public class AudioHandler : MonoBehaviour {
+public class AudioHitHandler : MonoBehaviour {
 
 	// Static reference to singleton object
-	public static AudioHandler instance;
+	public static AudioHitHandler instance;
 	public AudioClip[] myClip;
 	
 	// Use this for initialization
 	
 	void Start ()
 	{
-		instance = gameObject.GetComponent<AudioHandler>();
+		instance = gameObject.GetComponent<AudioHitHandler>();
 	}
 
 	public void playSound ()
 	{
 		audio.PlayOneShot(myClip[Random.Range(0,myClip.Length)]);
-		wait ();
+		//wait ();
 	}
 	
 	IEnumerator wait()
