@@ -14,14 +14,14 @@ public class Enemy : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		print("Collision");
+		//print("Collision");
 		if (collision.gameObject.CompareTag ("Player") == true) 
 			deplacement = 0;
 	}
 
 	void OnTriggerExit2D(Collider2D collision)
 	{
-		print("Collision");
+		//print("Collision");
 		if (collision.gameObject.CompareTag ("Player") == true) 
 			deplacement = -0.02f;
 	}

@@ -11,6 +11,7 @@ public class HeroControl : MonoBehaviour {
 	Vector3 gotoPosition;
 	bool goingToPos;
 	float startFlyTime;
+	bool collidingWithEnemy;
 
 	// Use this for initialization
 	void Start () 
@@ -18,7 +19,25 @@ public class HeroControl : MonoBehaviour {
 		initPosition = transform.position;
 		animator = this.GetComponent<Animator>();
 		goingToPos = false;
+		collidingWithEnemy = false;
 
+	}
+
+	void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy") == true)
+			collidingWithEnemy = true;
+	}
+
+	void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy") == true)
+			collidingWithEnemy = false;
+	}
+
+	void nextState()
+	{
+		animator.SetInteger("State", animator.GetInteger("State")+1);
 	}
 
 	void defaultState()
@@ -27,12 +46,6 @@ public class HeroControl : MonoBehaviour {
 		goingToPos = false;
 		transform.position = initPosition;
 	}
-
-	void nextState()
-	{
-		animator.SetInteger("State", 1);
-	}
-
 
 	void flyToPosition()
 	{
@@ -47,6 +60,14 @@ public class HeroControl : MonoBehaviour {
 		}
 
 		transform.position = Vector3.Lerp(initPosition, gotoPosition, (Time.time - startFlyTime) / flyDuration);
+
+		if (collidingWithEnemy)
+			nextState();
+	}
+
+	void punch1()
+	{
+
 	}
 
 	void doAction()
@@ -64,8 +85,9 @@ public class HeroControl : MonoBehaviour {
 		case 1:
 			flyToPosition();
 			break;
+		// punch
 		case 2:
-
+			punch1();
 			break;
 		
 
