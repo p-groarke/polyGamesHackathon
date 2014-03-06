@@ -29,7 +29,7 @@ public class Pause : MonoBehaviour {
 		//SetScreenOverlayColor(new Color(0,0,0,1));
 		if (m_isPaused) 
 		{
-			StartFade (new Color (0, 0, 0, 0.8f), 0.4f);
+			StartFade (new Color (0, 0, 0, 0.6f), 0.4f);
 			if(m_CurrentScreenOverlayColor == m_TargetScreenOverlayColor)
 			{
 				Time.timeScale = 0;
