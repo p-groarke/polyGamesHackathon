@@ -4,21 +4,28 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 
 	bool isDead= false;
+	int lastHP;
 	public float speed = -0.02f;
 	public int HP = 3;
-	private float lastTime = 0f;
-	public GameObject ennemyHead;
-	private PlayerScore score;
 	public GameObject[] enemyDeath;
+	public GameObject ennemyHead;
+
+	private float lastTime = 0f;
+	private PlayerScore score;
+	private GameObject newEnnemyHead;
+	private float vertExtent;
+	private float horzExtent;
 	
 	// Use this for initialization
 	void Start () {
 		score = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerScore> ();
+		lastHP = HP;
 	}
 
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
+		//print("Collision");r
 		if (collision.gameObject.CompareTag ("Player") == true) 
 		{
 			speed = 0;
@@ -28,6 +35,7 @@ public class Enemy : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D collision)
 	{
+		//print("Collision");
 		if (collision.gameObject.CompareTag ("Player") == true) 
 		{
 			speed = -0.02f;
@@ -43,6 +51,12 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Play hurt sound
+		if (lastHP > HP && HP != 0)
+		{
+			AudioHurtHandler.instance.playSound();
+			lastHP = HP;
+		}
 		Vector3 newPosition = transform.position;
 		if (lastTime != Time.time) 
 		{
@@ -50,11 +64,15 @@ public class Enemy : MonoBehaviour {
 			transform.position = newPosition;
 		}
 
-		float vertExtent = GameObject.Find("Main Camera").GetComponent<Camera>().camera.orthographicSize;  
-		float horzExtent = vertExtent * Screen.width / Screen.height;
+		vertExtent = GameObject.Find("Main Camera").GetComponent<Camera>().camera.orthographicSize;  
+		horzExtent = vertExtent * Screen.width / Screen.height;
 		if (transform.position.x < (horzExtent * -1) - 3) 
 		{
 			Destroy(gameObject);
+		}
+		if (newEnnemyHead != null && ((newEnnemyHead.transform.position.x > horzExtent) || (newEnnemyHead.transform.position.x < -horzExtent))) 
+		{
+			Destroy(newEnnemyHead);
 		}
 		lastTime = Time.time;
 	}
@@ -70,9 +88,11 @@ public class Enemy : MonoBehaviour {
 	{
 		score.addPoints(50);
 		GameObject newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
+		AudioDeathHandler.instance.playSound();
+		newEnnemyHead = (GameObject)Instantiate (ennemyHead, transform.position, transform.rotation);
 		Vector3 headVelocity = newEnnemyHead.rigidbody2D.velocity;
 		headVelocity.x += Random.Range (-10, 10);
-		headVelocity.y += Random.Range (0, 40);
+		headVelocity.y += Random.Range (0, 30);
 		newEnnemyHead.rigidbody2D.velocity = headVelocity;
 
 		//Vector3 newPosition = transform.position;
