@@ -15,7 +15,7 @@ public class CTouchControl : MonoBehaviour {
 	void Update () 
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-		transform.position = ray.GetPoint();
+		//transform.position = ray.GetPoint();
 		
 
 	}
@@ -44,5 +44,4 @@ public class CTouchControl : MonoBehaviour {
 //			++i;
 //		}
 
-	}
 }
