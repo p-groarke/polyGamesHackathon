@@ -116,6 +116,7 @@ public class HeroControl : MonoBehaviour {
 			animator.SetInteger("State", 1);
 			gotoPosition = transform.position;
 			gotoPosition.z = 0;
+			//transform.position = initPosition;
 			startFlyTime = Time.time;
 		}
 
@@ -139,8 +140,8 @@ public class HeroControl : MonoBehaviour {
 			goingToPos = true;
 			goingBack = false;
 			animator.SetInteger("State", 1);
-			gotoPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-			//gotoPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			//IOS gotoPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+			gotoPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			gotoPosition.x = currentTarget.collider2D.transform.position.x - (this.GetComponent<SpriteRenderer>().bounds.size.x / 2);
 			gotoPosition.z = 0;
 //			print (gotoPosition);
@@ -221,17 +222,15 @@ public class HeroControl : MonoBehaviour {
 		else
 		{
 			//SWIPE STUFF
-			if (Input.touchCount > 0)
-//			if (Input.GetMouseButtonDown(0))
+
+			if (Input.GetMouseButtonDown(0))
 			{
-				swipeFirstPosition = Input.GetTouch(0).position;
-//				swipeFirstPosition = Input.mousePosition;
+				swipeFirstPosition = Input.mousePosition;
 
 				if (!fighting)
 				{
 					//print ("mouseDOWN");
-					RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
-//					RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+					RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 					
 					if(hit && hit.collider.gameObject.CompareTag("Enemy") == true)
 					{
@@ -259,13 +258,11 @@ public class HeroControl : MonoBehaviour {
 				
 			
 			// Check swipes
-			else if (Input.touchCount > 0)
-			//else if (Input.GetMouseButtonUp(0))
+			else if (Input.GetMouseButtonUp(0))
 			{
 				gotMouseUp = true;
 
-				//swipeCurrent = (Vector2)Input.mousePosition - swipeFirstPosition;
-				swipeCurrent = (Vector2)Input.GetTouch(0).position - swipeFirstPosition;
+				swipeCurrent = (Vector2)Input.mousePosition - swipeFirstPosition;
 				Vector2 swipeNorm = swipeCurrent.normalized;
 				
 				// Swipe up
