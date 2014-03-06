@@ -51,10 +51,16 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Handle back button
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			HandleBackbutton();
+		}
+
 		//Play hurt sound
 		if (lastHP > HP && HP != 0)
 		{
-			//AudioHurtHandler.instance.playSound();
+			AudioHurtHandler.instance.playSound();
 			lastHP = HP;
 		}
 		Vector3 newPosition = transform.position;
@@ -107,4 +113,8 @@ public class Enemy : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
+	void HandleBackbutton()
+	{
+		Application.Quit();
+	}
 }
