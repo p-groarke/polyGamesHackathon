@@ -431,9 +431,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_SortingLayerID: 1024582385
+  m_SortingLayerID: 2511236001
   m_Sprite: {fileID: 21300000, guid: 9ae24cdb798484bf6a8f69f867939b5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &850301002
@@ -473,9 +473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: .100000001
   flyDuration: .100000001
-  goBackDuration: .200000003
-  fightCounterTime: 2
-  singleClickTime: .100000001
 --- !u!95 &850301005
 Animator:
   serializedVersion: 2
