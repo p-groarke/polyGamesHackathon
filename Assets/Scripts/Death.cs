@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Death : MonoBehaviour {
-	private bool m_isDead = false;
+	public bool m_isDead = false;
 	private GUIStyle m_BackgroundStyle = new GUIStyle();		// Style for background tiling
 	private Texture2D m_FadeTexture;				// 1x1 pixel texture used for fading
 	private Color m_startScreenColor = new Color(0,0,0,0);
@@ -29,7 +29,6 @@ public class Death : MonoBehaviour {
 		//SetScreenOverlayColor(new Color(0,0,0,1));
 		GameObject hero = GameObject.Find ("hero");
 		int healt = hero.GetComponent<HeroControl>().HP;
-		print (healt);
 		if (healt <= 0) 
 		{
 			m_isDead = true;

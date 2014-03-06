@@ -260,7 +260,6 @@ public class HeroControl : MonoBehaviour {
 					
 					if(hit && hit.collider.gameObject.CompareTag("Enemy") == true)
 					{
-						print (hit.transform.tag);
 						currentTarget = hit.transform.gameObject;
 					}
 					else
