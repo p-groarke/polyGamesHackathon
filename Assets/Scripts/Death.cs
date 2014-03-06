@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Death : MonoBehaviour {
-	private bool m_isPaused = false;
+	public bool m_isDead = false;
 	private GUIStyle m_BackgroundStyle = new GUIStyle();		// Style for background tiling
 	private Texture2D m_FadeTexture;				// 1x1 pixel texture used for fading
 	private Color m_startScreenColor = new Color(0,0,0,0);
@@ -10,7 +10,6 @@ public class Death : MonoBehaviour {
 	private Color m_TargetScreenOverlayColor = new Color(0,0,0,0);	// default target color: black and fully transparrent
 	private Color m_DeltaColor = new Color(0,0,0,0);		// the delta-color is basically the "speed / second" at which the current color should change
 	private int m_FadeGUIDepth = -1000;				// make sure this texture is drawn on top of everything
-	HeroControl hero = new HeroControl();
 	
 	
 	// initialize the texture, background-style and initial color:
@@ -28,21 +27,31 @@ public class Death : MonoBehaviour {
 		// TEMP:
 		// usage: use "SetScreenOverlayColor" to set the initial color, then use "StartFade" to set the desired color & fade duration and start the fade
 		//SetScreenOverlayColor(new Color(0,0,0,1));
+		GameObject hero = GameObject.Find ("hero");
+		int healt = hero.GetComponent<HeroControl>().HP;
+		if (healt <= 0) 
+		{
+			m_isDead = true;
+		}
 	}
 	
 	
 	// draw the texture and perform the fade:
 	private void OnGUI()
 	{   
-		if (hero.HP == 0)
+		if (m_isDead)
 		{
 			StartFade (new Color (0.6f, 0, 0, 0.6f), 0.4f);
 			if(m_CurrentScreenOverlayColor == m_TargetScreenOverlayColor)
 			{
 				Time.timeScale = 0;
-				if (GUI.Button (new Rect (Screen.width/2 - 75,75,150,50), "Return to MainMenu"))
+				GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);  //Keeps the button looking like a button
+				buttonStyle.fontSize = 40;  //changes font size of button
+				buttonStyle.normal.textColor = Color.white;
+				buttonStyle.fontStyle = FontStyle.Bold;
+				if (GUI.Button (new Rect (Screen.width/2 - 150,Screen.height/2 - 150 ,300,100), "Main Menu", buttonStyle))
 					Application.LoadLevel("MainMenu");
-				if (GUI.Button (new Rect (Screen.width/2 - 75,175,150,50), "Restart"))
+				if (GUI.Button (new Rect (Screen.width/2 - 150,Screen.height/2 +50 ,300,100), "Restart", buttonStyle))
 					Application.LoadLevel("level1");
 			}
 		} 

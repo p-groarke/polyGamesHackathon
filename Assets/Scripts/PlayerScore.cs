@@ -15,7 +15,7 @@ public class PlayerScore : MonoBehaviour {
 
 	void OnGUI () {
 		GUIStyle myStyle = new GUIStyle();
-		myStyle.fontSize = 24;
+		myStyle.fontSize = 36;
 		myStyle.fontStyle = FontStyle.Bold;
 		myStyle.normal.textColor = Color.red; 
 		GUI.Label (new Rect (10, 10, 100, 30), "Score: " + (int)score, myStyle);

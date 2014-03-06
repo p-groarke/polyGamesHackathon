@@ -57,6 +57,10 @@ public class Enemy : MonoBehaviour {
 			HandleBackbutton();
 		}
 
+		if (Time.time % 30 == 0) 
+		{
+			++HP;
+		}
 		//Play hurt sound
 		if (lastHP > HP && HP != 0)
 		{
@@ -85,7 +89,6 @@ public class Enemy : MonoBehaviour {
 
 	public void Damage(int hp)
 	{
-		print ("damage"+ hp);
 		// Reduce the number of hit points by one.
 		HP -= hp;
 		if (HP <= 0)
