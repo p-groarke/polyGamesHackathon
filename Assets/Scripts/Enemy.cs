@@ -15,20 +15,14 @@ public class Enemy : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-<<<<<<< HEAD
-		//print("Collision");
-=======
->>>>>>> master
+		//print("Collision");r
 		if (collision.gameObject.CompareTag ("Player") == true) 
 			speed = 0;
 	}
 
 	void OnTriggerExit2D(Collider2D collision)
 	{
-<<<<<<< HEAD
 		//print("Collision");
-=======
->>>>>>> master
 		if (collision.gameObject.CompareTag ("Player") == true) 
 			speed = -0.02f;
 	}
@@ -36,7 +30,7 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		print (speed);
+		//print (speed);
 		Vector3 newPosition = transform.position;
 		if (lastTime != Time.time) 
 		{
