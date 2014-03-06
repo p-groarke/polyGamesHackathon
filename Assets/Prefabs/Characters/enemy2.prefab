@@ -39,10 +39,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400006}
-  - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 58: {fileID: 5800000}
   - 95: {fileID: 9500000}
+  - 50: {fileID: 5000000}
   m_Layer: 10
   m_Name: enemy2
   m_TagString: Enemy
@@ -87,7 +87,7 @@ Transform:
   m_Father: {fileID: 0}
 --- !u!50 &5000000
 Rigidbody2D:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
@@ -145,6 +145,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 85020549641fa452d9136ac2fc852efd, type: 3}
   - {fileID: 8300000, guid: 2e20b5071623f44cf9c72acf016de4b6, type: 3}
   hundredPointsUI: {fileID: 100006, guid: 31974361bc9e44fb18c77b64a4cb3bbd, type: 2}
+  deathSpinMin: -100
+  deathSpinMax: 100
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
