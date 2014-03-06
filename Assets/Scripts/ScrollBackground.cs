@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class ScrollBackground : MonoBehaviour {
 
 	public float speed = 0;
+	public int sortingLayerID;
 
 	// Use this for initialization
 	void Start () {
@@ -15,5 +16,6 @@ public class ScrollBackground : MonoBehaviour {
 	void Update ()
 	{
 		renderer.material.mainTextureOffset = new Vector2 ((Time.time * speed) % 1, 0f);
+		renderer.sortingLayerID = sortingLayerID;
 	}
 }
