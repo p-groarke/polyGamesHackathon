@@ -33,12 +33,15 @@ public class Pause : MonoBehaviour {
 			if(m_CurrentScreenOverlayColor == m_TargetScreenOverlayColor)
 			{
 				Time.timeScale = 0;
+				GameObject.Find("GameTheme").audio.Pause();
 			}
 		} 
 		else
 		{
 			m_CurrentScreenOverlayColor = m_startScreenColor;
-				Time.timeScale = 1;
+			if(!GameObject.Find("GameTheme").audio.isPlaying)
+				GameObject.Find("GameTheme").audio.Play();
+			Time.timeScale = 1;
 		}
 	}
 	
