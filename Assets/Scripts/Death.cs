@@ -40,9 +40,9 @@ public class Death : MonoBehaviour {
 			if(m_CurrentScreenOverlayColor == m_TargetScreenOverlayColor)
 			{
 				Time.timeScale = 0;
-				if (GUI.Button (new Rect (185,75,150,50), "Return to MainMenu"))
+				if (GUI.Button (new Rect (Screen.width/2 - 75,75,150,50), "Return to MainMenu"))
 					Application.LoadLevel("MainMenu");
-				if (GUI.Button (new Rect (185,175,150,50), "Restart"))
+				if (GUI.Button (new Rect (Screen.width/2 - 75,175,150,50), "Restart"))
 					Application.LoadLevel("level1");
 			}
 		} 

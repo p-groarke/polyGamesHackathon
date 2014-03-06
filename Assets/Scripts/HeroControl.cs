@@ -116,6 +116,7 @@ public class HeroControl : MonoBehaviour {
 			animator.SetInteger("State", 1);
 			gotoPosition = transform.position;
 			gotoPosition.z = 0;
+			//transform.position = initPosition;
 			startFlyTime = Time.time;
 		}
 
@@ -140,6 +141,7 @@ public class HeroControl : MonoBehaviour {
 			goingBack = false;
 			animator.SetInteger("State", 1);
 			//gotoPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+			//IOS gotoPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 			gotoPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			gotoPosition.x = currentTarget.collider2D.transform.position.x - (this.GetComponent<SpriteRenderer>().bounds.size.x / 2);
 			gotoPosition.z = 0;
@@ -225,6 +227,7 @@ public class HeroControl : MonoBehaviour {
 			if (Input.GetMouseButtonDown(0))
 			{
 				//swipeFirstPosition = Input.GetTouch(0).position;
+
 				swipeFirstPosition = Input.mousePosition;
 
 				if (!fighting)

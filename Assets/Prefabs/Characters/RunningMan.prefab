@@ -87,9 +87,7 @@ MonoBehaviour:
   enemyDeath:
   - {fileID: 100000, guid: 7df529927c4b2e24fb4fb878dcef7edc, type: 2}
   - {fileID: 100000, guid: 067ee13e70a6f4643a1ab33848aab2e7, type: 2}
-  - {fileID: 100000, guid: 2eb17c167156ca94aad61d5ca15247b9, type: 2}
-  - {fileID: 100000, guid: 3327682d25bcf404da8f998fa6684296, type: 2}
-  ennemyHead: {fileID: 100000, guid: 63c828870b06a4d4cb398f13361abf89, type: 2}
+  ennemyHead: {fileID: 100000, guid: a25a8da38e8ee8243bdab5f6722077a1, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

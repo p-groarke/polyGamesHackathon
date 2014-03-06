@@ -18,5 +18,6 @@ public class FollowPlayer : MonoBehaviour
 	{
 		// Set the position to the player's position with the offset.
 		transform.position = player.position + offset;
+		GameObject.FindGameObjectWithTag ("HealthBar").transform.localScale = new Vector3 (0.5f, 1f, 1f);
 	}
 }
