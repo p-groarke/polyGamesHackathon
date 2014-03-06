@@ -11,17 +11,15 @@ public class EnemySpawner : MonoBehaviour
 	void Start ()
 	{
 		// Start calling the Spawn function repeatedly after a delay .
-		InvokeRepeating("Spawn", spawnDelay, Random.Range (1, 6));
+		InvokeRepeating("Spawn", spawnDelay, 10);
 	}
-	
+	//Random.Range (1, 6)
 	
 	void Spawn ()
 	{
 		// Instantiate a random enemy.
 		int enemyIndex = Random.Range(0, enemies.Length);
-		Quaternion rotation = enemies[enemyIndex].transform.rotation;
-		rotation.y += 180; 
-		Instantiate(enemies[enemyIndex], transform.position, rotation);
+		Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
 		
 		// Play the spawning effect from all of the particle systems.
 		//foreach(ParticleSystem p in GetComponentsInChildren<ParticleSystem>())
