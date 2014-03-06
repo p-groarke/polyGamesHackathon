@@ -49,7 +49,11 @@ public class Pause : MonoBehaviour {
 	// draw the texture and perform the fade:
 	private void OnGUI()
 	{   
-		if (GUI.Button (new Rect (450,05,50,50), "Pause")) {
+		GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);  //Keeps the button looking like a button
+		buttonStyle.fontSize = 40;  //changes font size of button
+		buttonStyle.normal.textColor = Color.white;
+		buttonStyle.fontStyle = FontStyle.Bold;
+		if (GUI.Button (new Rect (Screen.width/2 - 75,30,150,100), "Pause", buttonStyle)) {
 			m_isPaused = !m_isPaused;
 		}
 		// if the current color of the screen is not equal to the desired color: keep fading!
